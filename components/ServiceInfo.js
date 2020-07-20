@@ -6,15 +6,15 @@ export default function ServiceInfo({ status }) {
     statusStyle: {
       width:
         status == "sent"
-          ? "52%"
+          ? "55%"
           : status == "preparing"
-          ? "56%"
+          ? "59%"
           : status == "cancelled"
           ? "44%"
           : status == "done"
           ? "46%"
-          : "48%",
-      height: 25,
+          : "51%",
+      height: 28,
       backgroundColor:
         status == "preparing"
           ? "#ED6E2F"
@@ -52,7 +52,8 @@ export default function ServiceInfo({ status }) {
         style={{
           color: "rgba(245,245,245,0.8)",
           textAlign: "center",
-          fontSize: 13,
+          fontSize: 14,
+          marginTop: 1,
           fontFamily: "poppins-regular",
         }}
       >

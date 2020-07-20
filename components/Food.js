@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     width: "92%",
-    height: 96,
+    height: 104,
     marginBottom: 15,
     marginLeft: "auto",
     marginRight: "auto",
@@ -127,6 +127,6 @@ const styles = StyleSheet.create({
   },
   price: {
     fontSize: 18,
-    fontFamily: "poppins-semibold",
+    fontFamily: "poppins-medium",
   },
 });
