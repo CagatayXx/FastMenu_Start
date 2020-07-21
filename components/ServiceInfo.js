@@ -2,40 +2,18 @@ import React from "react";
 import { StyleSheet, Text, View, Image, ActivityIndicator } from "react-native";
 
 export default function ServiceInfo({ status }) {
-  const styles = StyleSheet.create({
-    statusStyle: {
-      width:
-        status == "sent"
-          ? "55%"
-          : status == "preparing"
-          ? "59%"
-          : status == "cancelled"
-          ? "44%"
-          : status == "done"
-          ? "46%"
-          : "51%",
-      height: 28,
-      backgroundColor:
-        status == "preparing"
-          ? "#ED6E2F"
-          : status == "done"
-          ? "#5B8C3B"
-          : "#D34431",
-      marginTop: 2,
-      marginLeft: 2,
-      paddingTop: 3,
-      paddingBottom: 3,
-      paddingLeft: 2,
-      paddingRight: 2,
-      borderRadius: 100,
-      opacity: status == "draft" ? 0 : 1,
-    },
-  });
-
   return (
     <View
       style={[
         styles.statusStyle,
+        {
+          backgroundColor:
+            status == "preparing"
+              ? "#ED6E2F"
+              : status == "done"
+              ? "#5B8C3B"
+              : "#D34431",
+        },
         status == "preparing"
           ? {
               display: "flex",
@@ -46,7 +24,10 @@ export default function ServiceInfo({ status }) {
       ]}
     >
       {status == "preparing" ? (
-        <ActivityIndicator style={{ marginLeft: -8, marginRight: 10 }} />
+        <ActivityIndicator
+          color="white"
+          style={{ marginLeft: -8, marginRight: 10 }}
+        />
       ) : null}
       <Text
         style={{
@@ -70,3 +51,16 @@ export default function ServiceInfo({ status }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  statusStyle: {
+    height: 28,
+    marginTop: 2,
+    marginLeft: 2,
+    paddingTop: 3,
+    paddingBottom: 3,
+    paddingHorizontal: 10,
+    borderRadius: 100,
+    alignSelf: "flex-start",
+  },
+});

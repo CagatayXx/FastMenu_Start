@@ -26,8 +26,6 @@ export default function App() {
       quantity: 2,
       price: 27.5,
       status: "draft",
-      onIncrease: () => console.log("increased"),
-      onDecrease: () => console.log("decreased"),
     },
     {
       id: 1,
@@ -37,8 +35,6 @@ export default function App() {
       quantity: 2,
       price: 23,
       status: "sent",
-      onIncrease: () => console.log("increased"),
-      onDecrease: () => console.log("decreased"),
     },
     {
       id: 2,
@@ -48,8 +44,6 @@ export default function App() {
       quantity: 2,
       price: 14.5,
       status: "preparing",
-      onIncrease: () => console.log("increased"),
-      onDecrease: () => console.log("decreased"),
     },
     {
       id: 3,
@@ -59,8 +53,6 @@ export default function App() {
       quantity: 2,
       price: 18.75,
       status: "done",
-      onIncrease: () => console.log("increased"),
-      onDecrease: () => console.log("decreased"),
     },
     {
       id: 4,
@@ -70,8 +62,6 @@ export default function App() {
       quantity: 2,
       price: 32.9,
       status: "cancelled",
-      onIncrease: () => console.log("increased"),
-      onDecrease: () => console.log("decreased"),
     },
   ]);
 
@@ -103,8 +93,6 @@ export default function App() {
                 useFoodList(alldata);
                 useChanged(!changed);
               }}
-              index={index}
-              setter={useFoodList}
             />
           )}
           keyExtractor={(item) => item.id.toString()}

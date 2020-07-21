@@ -5,7 +5,6 @@ import { Ionicons } from "@expo/vector-icons";
 import ServiceInfo from "./ServiceInfo";
 
 export default function Food({
-  index,
   name,
   image,
   quantity,
@@ -13,7 +12,6 @@ export default function Food({
   status,
   onIncrease,
   onDecrease,
-  setter,
 }) {
   return (
     <View style={styles.foodView}>
@@ -26,7 +24,7 @@ export default function Food({
       <View style={styles.foodBody}>
         <Text style={styles.name}>{name}</Text>
 
-        <ServiceInfo status={status} />
+        {status != "draft" ? <ServiceInfo status={status} /> : null}
 
         <View style={styles.ordering}>
           <View>
@@ -37,7 +35,7 @@ export default function Food({
                   color: "#878787",
                   fontFamily: "poppins-regular",
 
-                  marginTop: -2,
+                  //   marginTop: -2,
                 }}
               >
                 {quantity} adet
@@ -73,7 +71,11 @@ export default function Food({
             )}
           </View>
 
-          <Text style={styles.price}>{price}₺</Text>
+          <Text style={styles.price}>
+            {/* {price.toString().padEnd(4, ".00")}₺ */}
+            {price}
+            {price.toString().length < 3 ? ".00" : null}₺
+          </Text>
         </View>
       </View>
     </View>
@@ -116,14 +118,16 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    position: "relative",
-    bottom: -9,
+    position: "absolute",
+    width: "100%",
+    right: 0,
+    bottom: -5,
   },
   quantityComponent: {
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    marginTop: -14,
+    // marginTop: -5,
   },
   price: {
     fontSize: 18,
